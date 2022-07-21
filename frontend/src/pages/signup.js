@@ -238,9 +238,9 @@ return(
                 </Box>
                 <Grid container display='flex' justifyContent='center'>
                     <Grid item sx={{color:blueGrey[500]}}>
-                        New Members 
+                        go to login page 
                         <Link href='/signin' variant="body2" sx={{pl:1, fontWeight:700}}>
-                        {"Sign Up"}
+                        {"Sign In"}
                         </Link>
                     </Grid>
                 </Grid>

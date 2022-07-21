@@ -184,7 +184,7 @@ function Signin(){
                 <Grid container display='flex' justifyContent='center'>
                     <Grid item sx={{color:blueGrey[500]}}>
                         New Members 
-                        <Link href='/signin' variant="body2" sx={{pl:1, fontWeight:700}}>
+                        <Link href='/signup' variant="body2" sx={{pl:1, fontWeight:700}}>
                         {"Sign Up"}
                         </Link>
                     </Grid>

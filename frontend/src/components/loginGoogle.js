@@ -22,7 +22,7 @@ function LoginGoogle() {
     <div className="App">
       {!loginStatus && (
         <GoogleLogin
-          clientId="671348139606-906f7lcl8vk6l26hivc1ka0hk2teuvb1.apps.googleusercontent.com"
+          clientId="242743680170-876298j3ddi8jjbkoobiefs3futatorc.apps.googleusercontent.com"
           buttonText="Login"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
@@ -36,7 +36,7 @@ function LoginGoogle() {
           <img src={url} alt={name} />
           <br />
           <GoogleLogout
-            clientId="671348139606-906f7lcl8vk6l26hivc1ka0hk2teuvb1.apps.googleusercontent.com"
+            clientId="242743680170-876298j3ddi8jjbkoobiefs3futatorc.apps.googleusercontent.com"
             buttonText="Logout"
             onLogoutSuccess={logout}
           />
