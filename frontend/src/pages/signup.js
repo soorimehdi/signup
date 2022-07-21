@@ -1,15 +1,15 @@
 import React from 'react';
 import { Container, Card, Divider, Button, TextField, Link, Grid, Box, Typography, Avatar, InputAdornment } from '@mui/material';
 import { UserContext } from "../user-context";
-import { blueGrey, blue } from '@mui/material/colors';
+import { blueGrey } from '@mui/material/colors';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import PhoneIphoneOutlinedIcon from '@mui/icons-material/PhoneIphoneOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import GoogleIcon from '@mui/icons-material/Google';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import googleLogo from '../images/Google-logo.png'
+import facebookLogo from '../images/facebook-logo.png';
 
 
 
@@ -62,8 +62,14 @@ function Signup(){
     
 
 return(
-    <Container component="main" sx={{width: screen.wS, height:screen.hS}}>     
-        <Card variant='outlined' sx={{m:0 ,pl:4,pr:4,pt:10,pb:2,borderRadius:10,border:'1px solid grey'}}>
+    <Container component="main" sx={{width: screen.wS, height:screen.hS}}> 
+        
+        <Card variant='outlined' sx={{ m:0 ,pl:4,pr:4,pt:10,pb:2,borderRadius:10,border:'1px solid grey'}}>
+        <Box>
+            <svg viewBox="0 0 800 400" style={{position:'static', top:0, right:0, left:0, marginTop:-90, marginRight:-50, marginLeft:-30, marginBottom:-150}}>
+                <path id="curve" fill="#068282" d="M 800 300 Q 400 350 0 50 L 0 0 L 800 0 L 800 300 Z"/>
+            </svg>
+        </Box>
             <Box>
                 <Grid container sx={{mb:5}}>
                     <Grid item xs={12} sm={12}>
@@ -212,8 +218,10 @@ return(
                     variant="contained"
                     sx={{ mt: 3, mb: 3, pr:6, borderRadius:50, bgcolor:'white', color:'inherit', boxShadow:'0px 0px 20px 2px #888888', justifyContent:'center' }}
                     value = "login">
-                        <GoogleIcon fontSize='large' sx={{color: blue[700], pr:1}}/>
-                        login with Gmail
+                        <Avatar src={googleLogo}/>
+                        <Typography pl={2} variant='caption'>
+                            login with Gmail
+                        </Typography>
                     </Button>
 
                     <Button
@@ -222,8 +230,10 @@ return(
                     variant="contained"
                     sx={{ mt: 3, mb: 3, borderRadius:50, bgcolor:'white', color:'inherit', boxShadow:'0px 0px 20px 2px #888888', justifyContent:'center' }}
                     value = "login">
-                        <FacebookOutlinedIcon fontSize='large' sx={{color: blue[700], pr:1}}/>
-                        Login with facebook
+                        <Avatar src={facebookLogo}/>
+                        <Typography pl={2} variant='caption'>
+                            Login with facebook
+                        </Typography>
                     </Button>
                 </Box>
                 <Grid container display='flex' justifyContent='center'>
