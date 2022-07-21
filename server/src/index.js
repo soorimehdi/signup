@@ -79,62 +79,6 @@ server.post('/signin', async(req, res)=>{
     }
 });
 
-// logout a user
-server.post('/logout', (_req, res)=>{
-    res.clearCookie('refreshtoken', {path: '/refresh_token'});
-    return res.send({
-        message: 'logged out'
-    })
-});
-
-// protected route
-server.post('/protected', async(req, res)=>{
-    try{
-        const userId = isAuth(req);
-        const isAuth = false;
-        if (userId !==null){
-            isAuth = true;
-        }
-        res.send({
-            data: isAuth,
-        })
-    } catch(err){
-        res.send({
-            error: `${err.message}`,
-        })
-    }
-});
-
-//Get a new access token with a refresh token 
-server.post('/refresh_token', (req, res)=>{
-    const token = req.cookies.refreshtoken;
-    if(!token){ res.send({accesstoken:''});};
-    let payload = null;
-    try{
-        payload = verify(token, process.env.REFRESH_TOKEN_SECRET)
-    }catch(err){
-        return res.send({accesstoken:''});
-    }
-
-    // token is valid
-    const user = fakeDB.find(user => user.id === payload.userId);
-    if(!user) return res.send({ accesstoken:''})
-
-    //user exist, check if user is exist
-    if(user.refreshtoken !==token) {
-        return res.send({accesstoken:''})
-    }
-
-    // token exist, create new refresh and accesstoken
-    const accesstoken = createAccessToken(user.id);
-    const refreshtoken = createRefreshToken(user.id);
-    user.refreshtoken = refreshtoken;
-    
-
-    // all good to go, refreshtoken
-    sendRefreshToken(res, refreshtoken);
-    return res.send({accesstoken});
-})
 
 server.listen(process.env.PORT, ()=>
 console.log(`Server listening on port ${process.env.PORT}`));

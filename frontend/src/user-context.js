@@ -77,29 +77,9 @@ const UserProvider = ({children}) => {
         }
     }
 
-        
-    const logout = async() => {
-        try {
-            await axiosInstance.post('/logout', 
-            JSON.stringify({}),
-            { 
-                headers:{'Content-Type': 'application/json'},
-                withCredentials:false
-            });
-            setUser('');
-            Cookies.remove('user');
-        }
-        catch(err){
-            if(!err.response){
-                console.log('no server response')
-            } else {
-                console.log('logout Failed')
-            }
-        }
-    }
 
     return (
-        <UserContext.Provider value={{user, setUser, signin, logout, signup}}>
+        <UserContext.Provider value={{user, setUser, signin, signup}}>
             {children}
         </UserContext.Provider>
     )

@@ -42,12 +42,12 @@ function Signup(){
     const responsive = ()=>{
         window.innerWidth < 550
         ? setScreen({
-            widthScreen: window.innerWidth,
-            heightScreen: window.innerHeight
+            wS: window.innerWidth,
+            hS: window.innerHeight,
         })
         : setScreen({
-            widthScreen: 550,
-            heightScreen: window.innerHeight
+            wS: 550,
+            hS: window.innerHeight, 
         })
     }
     
@@ -62,8 +62,8 @@ function Signup(){
     
 
 return(
-    <Container component="main" sx={{width: screen.widthScreen}}>     
-        <Card variant='outlined' sx={{alignItems:'center',pl:4,pr:4,pt:10,pb:2,borderRadius:10,border:'1px solid grey'}}>
+    <Container component="main" sx={{width: screen.wS, height:screen.hS}}>     
+        <Card variant='outlined' sx={{m:0 ,pl:4,pr:4,pt:10,pb:2,borderRadius:10,border:'1px solid grey'}}>
             <Box>
                 <Grid container sx={{mb:5}}>
                     <Grid item xs={12} sm={12}>
@@ -190,17 +190,18 @@ return(
                 Sign Up
                 </Button>
                 <Box>
-                    <Grid container display='flex' alignItems='center'>
+                    <Grid container display='flex' alignItems='center' justifyContent='center'>
                         <Grid item xs={12} sm={5}>
-                            <Divider flexItem sx={{ borderTop: 3, borderBottom:0, borderColor:'#068282' }}/>
+                            <Divider variant='fullWidth' flexItem sx={{ borderTop:3, borderBottom:0, borderColor:'#068282'}}/>
                         </Grid>
-                        <Grid item xs={12} sm={2} display='flex' justifyContent="center">
+                        <Grid item xs={12} sm={2} display='flex' alignItems='center' justifyContent='center'>
                             <Avatar sx={{p:1, color:'#068282' , bgcolor:'white', border:'3px solid #068282'}}>
                                 OR
                             </Avatar>
                         </Grid>
-                        <Grid item xs={12} sm={5}>
-                            <Divider flexItem sx={{ borderTop: 3, borderBottom:0, borderColor:'#068282' }}/>
+                        
+                        <Grid item xs={12} sm={5} >
+                            <Divider variant='fullWidth' flexItem sx={{ borderTop:3, borderBottom:0, borderColor:'#068282'}}/>
                         </Grid>
                     </Grid>
                 </Box>
@@ -209,9 +210,9 @@ return(
                     type="submit"
                     fullWidth
                     variant="contained"
-                    sx={{ mt: 3, mb: 3, pl:10, borderRadius:50, bgcolor:'white', color:'inherit', boxShadow:'0px 0px 20px 2px #888888', justifyContent:'left' }}
+                    sx={{ mt: 3, mb: 3, pr:6, borderRadius:50, bgcolor:'white', color:'inherit', boxShadow:'0px 0px 20px 2px #888888', justifyContent:'center' }}
                     value = "login">
-                        <GoogleIcon fontSize='large' sx={{color: blue[700], pr:5}}/>
+                        <GoogleIcon fontSize='large' sx={{color: blue[700], pr:1}}/>
                         login with Gmail
                     </Button>
 
@@ -219,9 +220,9 @@ return(
                     type="submit"
                     fullWidth
                     variant="contained"
-                    sx={{ mt: 3, mb: 3, pl:10, borderRadius:50, bgcolor:'white', color:'inherit', boxShadow:'0px 0px 20px 2px #888888', justifyContent:'left' }}
+                    sx={{ mt: 3, mb: 3, borderRadius:50, bgcolor:'white', color:'inherit', boxShadow:'0px 0px 20px 2px #888888', justifyContent:'center' }}
                     value = "login">
-                        <FacebookOutlinedIcon fontSize='large' sx={{color: blue[700], pr:5}}/>
+                        <FacebookOutlinedIcon fontSize='large' sx={{color: blue[700], pr:1}}/>
                         Login with facebook
                     </Button>
                 </Box>

@@ -27,12 +27,12 @@ function Signin(){
     const responsive = ()=>{
         window.innerWidth < 550
         ? setScreen({
-            widthScreen: window.innerWidth,
-            heightScreen: window.innerHeight
+            wS: window.innerWidth,
+            hS: window.innerHeight,
         })
         : setScreen({
-            widthScreen: 550,
-            heightScreen: window.innerHeight
+            wS: 550,
+            hS: window.innerHeight, 
         })
     }
     
@@ -49,8 +49,8 @@ function Signin(){
 
 
     return(
-        <Container component="main" sx={{width: screen.widthScreen}}>     
-        <Card variant='outlined' sx={{alignItems:'center',pl:4,pr:4,pt:10,pb:2,borderRadius:10,border:'1px solid grey'}}>
+        <Container component="main" sx={{width: screen.wS, height: screen.hS}}>     
+        <Card variant='outlined' sx={{pl:4,pr:4,pt:10,pb:2,borderRadius:10,border:'1px solid grey'}}>
             <Box>
                 <Grid container sx={{mb:5}}>
                     <Grid item xs={12} sm={12}>
